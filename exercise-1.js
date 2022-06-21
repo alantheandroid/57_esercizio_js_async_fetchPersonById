@@ -20,15 +20,12 @@ const persons = [
 ];
 
 function fetchPersonById(id) {
-  return new Promise((resolve, reject) => {
-    let fetchedPerson = persons.find((person) => person.id == id);
-    if (fetchedPerson) {
-      resolve(console.log(fetchedPerson));
-    }
+  return new Promise((resolve) => {
+    resolve(persons.find((person) => person.id == id));
   });
 }
 
-fetchPersonById(1);
-fetchPersonById(2);
-fetchPersonById(3);
-fetchPersonById(4); // this gets rejected and returns nothing
+fetchPersonById(1).then((person) => console.log(person));
+fetchPersonById(2).then((person) => console.log(person));
+fetchPersonById(3).then((person) => console.log(person));
+fetchPersonById(4).then((person) => console.log(person)); // this gets rejected and returns nothing
